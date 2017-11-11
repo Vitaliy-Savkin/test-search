@@ -38,6 +38,7 @@ object ConsoleClient {
             case Failure(t) => println(t.getMessage)
           }
         }
+
       case Array(url, "-get", id) =>
         executeAction(new Client(url).getDocument(id)) {
           {
@@ -48,13 +49,8 @@ object ConsoleClient {
 
       case Array(url, "-search", tokens @ _*) =>
         executeAction(new Client(url).searchDocuments(tokens)) {
-          case Success(documents) =>
-            documents.foreach { doc =>
-              println("-" * 20)
-              println(doc)
-            }
-          case Failure(t) =>
-            println(t.getMessage)
+          case Success(documents) => documents.foreach(println)
+          case Failure(t) => println(t.getMessage)
         }
 
       case _ =>
