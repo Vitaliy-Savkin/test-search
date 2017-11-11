@@ -5,8 +5,8 @@ lazy val commonSettings: Seq[Setting[_]] =
     organization := "com.playtech.bit",
     scalaVersion := "2.12.3",
 		libraryDependencies ++= Seq(
-			"com.typesafe.akka" %% "akka-http-core" % "10.0.10",
-			"de.heikoseeberger" %% "akka-http-play-json" % "1.18.1")
+			"com.typesafe.akka" %% "akka-http" % "10.0.9",
+			"com.typesafe.play" %% "play-json" % "2.6.3")
   )
 
 lazy val `test-search` = project
